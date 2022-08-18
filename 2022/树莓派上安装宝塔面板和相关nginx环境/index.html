@@ -1,0 +1,547 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="QwQ| 熙の时记" href="https://blog.tcilay.fun/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="QwQ| 熙の时记" href="https://blog.tcilay.fun/atom.xml" />
+<link rel="alternate" type="application/json" title="QwQ| 熙の时记" href="https://blog.tcilay.fun/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="教程,BT" />
+
+
+<link rel="canonical" href="https://blog.tcilay.fun/2022/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/">
+
+
+
+  <title>
+树莓派上安装宝塔面板和相关nginx环境 - 建站日记 |
+Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">树莓派上安装宝塔面板和相关nginx环境
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-08-17 19:51:52">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-08-17T19:51:52+08:00">2022-08-17</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>1.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>1 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tcilay</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/" itemprop="item" rel="index" title="分类于 建站日记"><span itemprop="name">建站日记</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://blog.tcilay.fun/2022/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="Tcilay">
+    <meta itemprop="description" content="Blog.tcilay.fun, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="QwQ| 熙の时记">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <div class="note info">
+<div class="tab" data-id="id1" data-title="阅前提示">
+<p><strong>本教程不欢迎不会动手的人、不善于利用搜索引擎和不懂<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3J5YW5oYW53dS9Ib3ctVG8tQXNrLVF1ZXN0aW9ucy1UaGUtU21hcnQtV2F5L2Jsb2IvbWFpbi9SRUFETUUtemhfQ04ubWQ=">提问的艺术</span>的人使用，如果您是以上所罗列出的类型，那么请现在放弃搭建的想法并关闭此教程。</strong></p>
+</div>
+</div>
+<div class="note warning">
+<p>通过此方法搭建好后可能有未知 bug，请谨慎选择！<br>
+同时需要有一点电脑基础。</p>
+</div>
+<h1 id="准备"><a class="markdownIt-Anchor" href="#准备">#</a> <span class="red">准备</span></h1>
+<ul>
+<li>树莓派主板</li>
+<li>读卡器</li>
+<li>一块屏幕</li>
+<li>鼠标 and 键盘</li>
+<li>下载 <span class="exturl" data-url="aHR0cHM6Ly91YnVudHUuY29tL2Rvd25sb2FkL3Jhc3BiZXJyeS1waQ==">ubuntu-desktop-arm64+raspi</span> 镜像</li>
+<li>下载 <span class="exturl" data-url="aHR0cDovL3NvZnQub25saW5lZG93bi5uZXQvc29mdC8xMTAxNzMuaHRt">Win32DiskImager</span> 软件</li>
+<li>任意一个<span class="red"> ssh</span> 软件 如<span class="exturl" data-url="aHR0cHM6Ly90aGUuZWFydGgubGkvfnNndGF0aGFtL3B1dHR5L2xhdGVzdC93NjQvcHV0dHktNjRiaXQtMC43Ny1pbnN0YWxsZXIubXNp"> putty</span></li>
+</ul>
+<h1 id="步骤"><a class="markdownIt-Anchor" href="#步骤">#</a> <span class="red">步骤</span></h1>
+<div class="note primary">
+<p>装好系统可以直接前往步骤 2.2</p>
+</div>
+<h2 id="安装ubuntu系统"><a class="markdownIt-Anchor" href="#安装ubuntu系统">#</a> 安装<span class="red"> ubuntu</span> 系统</h2>
+<ul>
+<li>
+<p>取出你的树莓派<span class="red"> SD 卡</span>，并插入电脑。</p>
+</li>
+<li>
+<p>右击<span class="red"> windows 键</span> 打开<span class="red">磁盘管理</span>。</p>
+</li>
+</ul>
+<img data-src="/2022/08/17/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/a.png" class="">
+<ul>
+<li>选择你的磁盘，<span class="red">删除所有卷并格式化</span>磁盘。</li>
+</ul>
+<img data-src="/2022/08/17/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/b.png" class="" title="完成后的样子">
+<ul>
+<li>打开<span class="red"> Win32DiskImager</span></li>
+</ul>
+<img data-src="/2022/08/17/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/c.png" class="">
+<ul>
+<li>选择你下载好的<span class="red">镜像文件</span>和<span class="red"> SD 卡</span>。</li>
+</ul>
+<img data-src="/2022/08/17/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/d.png" class="" title="完成后的样子">
+<ul>
+<li>
+<p>选择<span class="red"> yes</span> ， 等待完成。</p>
+</li>
+<li>
+<p>完成后将<span class="red"> SD 卡</span>安装回树莓派并链接键鼠安装<span class="red"> ubuntu</span> 系统 (记住你的账号密码并链接网络)。</p>
+</li>
+<li>
+<p>进入<span class="red"> ubuntu</span> 系统桌面，打开<span class="red">终端</span>，逐行输入一下命令。</p>
+</li>
+</ul>
+<figure class="highlight bash"><figcaption><span>mark:1,6-7</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo su   <span class="comment">#之后输入你的刚才设置密码（没有显示，输完直接回车）</span></span><br><span class="line">apt update</span><br><span class="line">apt upgrade</span><br><span class="line">apt install ssh -y</span><br><span class="line">apt install net-tools -y</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果没出意外的话你会看见</li>
+</ul>
+<img data-src="/2022/08/17/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/e.png" class="">
+<ul>
+<li>记下这行<span class="red"> ip 地址</span>，等会要用 (如：<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjgueC54eHg=">192.168.x.xxx</span>)</li>
+</ul>
+<h2 id="安装宝塔面板"><a class="markdownIt-Anchor" href="#安装宝塔面板">#</a> 安装宝塔面板</h2>
+<ul>
+<li>打开你的电脑，用<span class="red"> putty</span> 链接树莓派。<br>
+ip 地址为刚才你记下的 ip</li>
+</ul>
+<img data-src="/2022/08/17/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/f.png" class="">
+<ul>
+<li>再输入你装<span class="red"> ubuntu</span> 系统时设置的账户密码。</li>
+</ul>
+<img data-src="/2022/08/17/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/g.png" class="" title="连接成功的样子">
+<ul>
+<li>输入以下命令</li>
+</ul>
+<figure class="highlight bash"><figcaption><span>mark:1,6-7</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo su   <span class="comment">#之后输入你的刚才设置密码（没有显示，输完直接回车）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -f /usr/bin/curl ];<span class="keyword">then</span> curl -sSO https://download.bt.cn/install/install_panel.sh;<span class="keyword">else</span> wget -O install_panel.sh https://download.bt.cn/install/install_panel.sh;<span class="keyword">fi</span>;bash install_panel.sh ed8484bec</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>等待（由于需要编译，可能需要很久的时间）</li>
+</ul>
+<h2 id="安装相关环境"><a class="markdownIt-Anchor" href="#安装相关环境">#</a> 安装相关环境</h2>
+<ul>
+<li>安装完成后，在<span class="red">你电脑的</span>浏览器上输入 <span class="red">刚才的 ip</span> 加<span class="red"> BT 提示</span>给你的<span class="red">端口</span>和<span class="red">安全入口</span><br>
+如 <span class="red"><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjgueC54eHg6ODg4OC9hMXYyYzNzNQ==">192.168.x.xxx:8888/a1v2c3s5</span></span></li>
+</ul>
+<img data-src="/2022/08/17/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/h.png" class="" title="网页">
+<ul>
+<li>
+<p>再输入<span class="red"> BT 提示</span>给你的<span class="red">账号</span>和<span class="red">密码</span></p>
+</li>
+<li>
+<p>右侧 <span class="red">软件商店</span> - <span class="red">运行环境</span></p>
+</li>
+<li>
+<p>建议安装<br>
+<strong><span class="red"> Nginx 1.20.2<br>
+MySQL 5.7.39<br>
+PHP-7.2<br>
+phpMyAdmin5.0 </span></strong><br>
+实测这些版本能顺利成功安装</p>
+</li>
+</ul>
+<div class="note info">
+<p>由于编译安装，可能需要非常久的时间（我大约 3-5h）<br>
+还要注意你的树莓派的温度</p>
+</div>
+<h1 id="最后"><a class="markdownIt-Anchor" href="#最后">#</a> 最后</h1>
+<div class="note success">
+<p><span class="label success">开始你的建站之旅吧！</span></p>
+</div>
+
+      <div class="tags">
+          <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"><i class="ic i-tag"></i> 教程</a>
+          <a href="/tags/BT/" rel="tag"><i class="ic i-tag"></i> BT</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-08-18 07:58:18" itemprop="dateModified" datetime="2022-08-18T07:58:18+08:00">2022-08-18</time>
+  </span>
+  <span id="2022/树莓派上安装宝塔面板和相关nginx环境/" class="item leancloud_visitors" data-flag-title="树莓派上安装宝塔面板和相关nginx环境" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Tcilay 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Tcilay <i class="ic i-at"><em>@</em></i>QwQ| 熙の时记
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.tcilay.fun/2022/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/" title="树莓派上安装宝塔面板和相关nginx环境">https://blog.tcilay.fun/2022/树莓派上安装宝塔面板和相关nginx环境/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/hexo%E6%96%87%E7%AB%A0%E8%AF%AD%E6%B3%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclxfdlttj20zk0m8npd.jpg" title="hexo文章语法">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 建站日记</span>
+  <h3>hexo文章语法</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/hexo-shoke%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitspjpbj20zk0m81ky.jpg" title="hexo-shoke页面显示">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 建站日记</span>
+  <h3>hexo-shoke页面显示</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text"> 准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text"> 步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ubuntu%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.</span> <span class="toc-text"> 安装 ubuntu 系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF"><span class="toc-number">2.2.</span> <span class="toc-text"> 安装宝塔面板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83"><span class="toc-number">2.3.</span> <span class="toc-text"> 安装相关环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">3.</span> <span class="toc-text"> 最后</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2022/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/" rel="bookmark" title="树莓派上安装宝塔面板和相关nginx环境">树莓派上安装宝塔面板和相关nginx环境</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Tcilay"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">Tcilay</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">3</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RjaWxheS14aQ==" title="https:&#x2F;&#x2F;github.com&#x2F;Tcilay-xi"><i class="ic i-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOnRjaWxheUB0Y2lsYXkuZnVu" title="mailto:tcilay@tcilay.fun"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/hexo%E6%96%87%E7%AB%A0%E8%AF%AD%E6%B3%95/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/hexo-shoke%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Tcilay @ Tcilay</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">9k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8 分钟</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/树莓派上安装宝塔面板和相关nginx环境/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

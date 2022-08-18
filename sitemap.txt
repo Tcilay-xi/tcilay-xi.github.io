@@ -1,9 +1,10 @@
+https://blog.tcilay.fun/links/index.html
+https://blog.tcilay.fun/about/index.html
 https://blog.tcilay.fun/2022/%E5%8E%9F%E7%A5%9E%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/
 https://blog.tcilay.fun/web/index.html
 https://blog.tcilay.fun/2022/hexo-shoke%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA/
 https://blog.tcilay.fun/2022/hexo%E6%96%87%E7%AB%A0%E8%AF%AD%E6%B3%95/
 https://blog.tcilay.fun/2022/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%92%8C%E7%9B%B8%E5%85%B3nginx%E7%8E%AF%E5%A2%83/
-https://blog.tcilay.fun/about/index.html
 https://blog.tcilay.fun/
 https://blog.tcilay.fun/tags/hexo/
 https://blog.tcilay.fun/tags/%E6%95%99%E7%A8%8B/

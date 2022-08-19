@@ -1,3 +1,4 @@
+https://blog.tcilay.fun/web/index.html
 https://blog.tcilay.fun/article/2dd93df.html
 https://blog.tcilay.fun/article/e45661a.html
 https://blog.tcilay.fun/article/3c25e365.html
@@ -5,7 +6,6 @@ https://blog.tcilay.fun/article/fb3832f5.html
 https://blog.tcilay.fun/article/e6e2dce.html
 https://blog.tcilay.fun/links/index.html
 https://blog.tcilay.fun/about/index.html
-https://blog.tcilay.fun/web/index.html
 https://blog.tcilay.fun/
 https://blog.tcilay.fun/tags/hexo/
 https://blog.tcilay.fun/tags/%E6%95%99%E7%A8%8B/

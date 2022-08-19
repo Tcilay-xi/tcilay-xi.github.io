@@ -2518,6 +2518,12 @@ main >.inner {
 .social .item.github i {
   color: #191717;
 }
+.social .item.telegram::before {
+  background-color: #3b5998;
+}
+.social .item.telegram i {
+  color: #3b5998;
+}
 .social .item.email::before {
   background-color: #55acd5;
 }

@@ -24,12 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-
-<link rel="canonical" href="https://blog.tcilay.fun/links/">
-
+  <meta name="keywords" content="教程,BT,error" />
 
 
-  <title>links |
+<link rel="canonical" href="https://blog.tcilay.fun/article/1655f8ef.html">
+
+
+
+  <title>
+cloudflare一直爆520错误的解决方法 - 建站日记 |
 Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
 <meta name="generator" content="Hexo 6.2.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -57,8 +60,34 @@ Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">links
+  <h1 itemprop="name headline">cloudflare一直爆520错误的解决方法
   </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-08-30 14:31:11">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-08-30T14:31:11+08:00">2022-08-30</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>188</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>1 分钟</span>
+  </span>
+</div>
+
 
           </div>
         </div>
@@ -88,12 +117,12 @@ Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://www.dmoe.cc/random.php?84979"></li>
-          <li class="item" data-background-image="https://www.dmoe.cc/random.php?493227"></li>
-          <li class="item" data-background-image="https://www.dmoe.cc/random.php?341867"></li>
-          <li class="item" data-background-image="https://www.dmoe.cc/random.php?407371"></li>
-          <li class="item" data-background-image="https://www.dmoe.cc/random.php?933595"></li>
-          <li class="item" data-background-image="https://www.dmoe.cc/random.php?847068"></li>
+          <li class="item" data-background-image="https://www.dmoe.cc/random.php?304835"></li>
+          <li class="item" data-background-image="https://www.dmoe.cc/random.php?965163"></li>
+          <li class="item" data-background-image="https://www.dmoe.cc/random.php?444128"></li>
+          <li class="item" data-background-image="https://www.dmoe.cc/random.php?273825"></li>
+          <li class="item" data-background-image="https://www.dmoe.cc/random.php?213223"></li>
+          <li class="item" data-background-image="https://www.dmoe.cc/random.php?565357"></li>
         </ul>
       </div>
     </header>
@@ -114,9 +143,17 @@ Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
       <div class="inner">
         <div id="main" class="pjax">
           
-  <div class="page wrap">
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/" itemprop="item" rel="index" title="分类于 建站日记"><span itemprop="name">建站日记</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://blog.tcilay.fun/links/index.html">
+  <link itemprop="mainEntityOfPage" href="https://blog.tcilay.fun/article/1655f8ef.html">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.png">
@@ -131,25 +168,26 @@ Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="友链"><a class="markdownIt-Anchor" href="#友链">#</a> 友链</h1>
+    <h1 id="对error-520进行故障排除"><a class="markdownIt-Anchor" href="#对error-520进行故障排除">#</a> 对 Error 520 进行故障排除</h1>
+<ol>
+<li>
+<p>网站访问 cf 爆 520 错误，先单独将你的网站 <code>解析到IP+非80端口</code> 或关闭 cloudflare 的代理直接访问。测试是否访问正常。<br>
+如果访问正常，多半是你防火墙误报了。<br>
+比如宝塔的防火墙， <code>关闭cc防御</code> 就可以正常访问了。</p>
+</li>
+<li>
+<p>检查你的网站源码是否配置好，和 php 版本是否符合。以及你的环境是否配置正确。</p>
+</li>
+</ol>
 <ul>
-<li>哎嘿！暂时没有呢？</li>
-<li>路过的这位，换友链么？评论区踢我</li>
+<li>如果还是不行，多半是你的网站编写错误，看日志排除 bug 去吧。</li>
 </ul>
-<h1 id="我的其他网站"><a class="markdownIt-Anchor" href="#我的其他网站">#</a> 我的其他网站</h1>
-<div class="links"><div class="item" title="Tcilay" style="--block-color:#e9546b;"><a href="https://blog.tcilay.fun" class="image" data-background-image="https://blog.tcilay.fun/images/avatar.png"></a>
-          <div class="info">
-          <a href="https://blog.tcilay.fun" class="title">Tcilay's blog</a>
-          <p class="desc">熙的时记</p>
-          </div></div><div class="item" title="Tcilay" style="--block-color:#e9546b;"><span class="exturl image" data-url="aHR0cHM6Ly93d3cudGNpbGF5LmZ1bg==" data-background-image="https://blog.tcilay.fun/images/avatar.png"></span>
-          <div class="info">
-          <span class="exturl title" data-url="aHR0cHM6Ly93d3cudGNpbGF5LmZ1bg==">home</span>
-          <p class="desc">个人主页</p>
-          </div></div><div class="item" title="Tcilay" style="--block-color:#e9546b;"><span class="exturl image" data-url="aHR0cHM6Ly9oYW8udGNpbGF5LmZ1bg==" data-background-image="https://blog.tcilay.fun/images/avatar.png"></span>
-          <div class="info">
-          <span class="exturl title" data-url="aHR0cHM6Ly9oYW8udGNpbGF5LmZ1bg==">导航页</span>
-          <p class="desc">记录着我常用的网站</p>
-          </div></div></div>
+
+      <div class="tags">
+          <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"><i class="ic i-tag"></i> 教程</a>
+          <a href="/tags/BT/" rel="tag"><i class="ic i-tag"></i> BT</a>
+          <a href="/tags/error/" rel="tag"><i class="ic i-tag"></i> error</a>
+      </div>
   </div>
 
    <footer>
@@ -160,9 +198,9 @@ Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-08-18 17:55:05" itemprop="dateModified" datetime="2022-08-18T17:55:05+08:00">2022-08-18</time>
+    <time title="修改时间：2022-08-30 14:43:52" itemprop="dateModified" datetime="2022-08-30T14:43:52+08:00">2022-08-30</time>
   </span>
-  <span id="links/" class="item leancloud_visitors" data-flag-title="links" title="阅读次数">
+  <span id="article/1655f8ef.html" class="item leancloud_visitors" data-flag-title="cloudflare一直爆520错误的解决方法" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -194,7 +232,7 @@ Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://blog.tcilay.fun/links/index.html" title="links">https://blog.tcilay.fun/links/index.html</a>
+    <a href="https://blog.tcilay.fun/article/1655f8ef.html" title="cloudflare一直爆520错误的解决方法">https://blog.tcilay.fun/article/1655f8ef.html</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -208,6 +246,23 @@ Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
 
   </div>
   
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/article/911ce008.html" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;www.dmoe.cc&#x2F;random.php?900862" title="aria2+rclone实现OneDrive等离线下载教程">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 网盘</span>
+  <h3>aria2+rclone实现OneDrive等离线下载教程</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
   <div class="wrap" id="comments"></div>
 
 
@@ -220,9 +275,12 @@ Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8B%E9%93%BE"><span class="toc-number">1.</span> <span class="toc-text"> 友链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E5%85%B6%E4%BB%96%E7%BD%91%E7%AB%99"><span class="toc-number">2.</span> <span class="toc-text"> 我的其他网站</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9error-520%E8%BF%9B%E8%A1%8C%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4"><span class="toc-number">1.</span> <span class="toc-text"> 对 Error 520 进行故障排除</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/article/2dd93df.html" rel="bookmark" title="树莓派上安装宝塔面板和相关nginx环境">树莓派上安装宝塔面板和相关nginx环境</a></li><li><a href="/article/bc5f4c5e.html" rel="bookmark" title="Office365-E5申请+私人5TOnedrive网盘搭建教程">Office365-E5申请+私人5TOnedrive网盘搭建教程</a></li><li class="active"><a href="/article/1655f8ef.html" rel="bookmark" title="cloudflare一直爆520错误的解决方法">cloudflare一直爆520错误的解决方法</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -363,7 +421,7 @@ Tcilay = QwQ| 熙の时记 = Blog.tcilay.fun</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'links/',
+    path: 'article/1655f8ef.html',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
